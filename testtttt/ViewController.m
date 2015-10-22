@@ -48,8 +48,6 @@
       NSLog(@"****%d", (int)clickTagsTag);
     }];
     [self.view addSubview:_tagView.view];
-    CGSize size = _tagView.contentView.frame.size;
-    [_tagView.view setFrame:CGRectMake(0, 100, size.width + 10, size.height + 10)];
     [self.view setBackgroundColor:[UIColor yellowColor]];
 
     UIButton *button = [[UIButton alloc] init];
@@ -64,6 +62,14 @@
 - (void)clickTags:(UIButton *)sender {
     _tagView.tagsArray = [@[ @"aa子",
                              @"aahahaaaa12",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
+                             @"aa我们都是好孩子",
                              @"aa我们都是好孩子",
                              @"aahah2",
                              @"aa我",

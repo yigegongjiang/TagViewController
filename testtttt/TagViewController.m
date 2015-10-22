@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     [self refreshData];
 }
 
@@ -67,6 +67,9 @@
     }
     _trueSize = CGSizeMake(maxRight + _tagsMarginLeftAndRightForSubView, maxBottom + _tagsMarginTopAndBottomForSubView);
     [_contentView setFrame:CGRectMake(0, 0, _trueSize.width, _trueSize.height)];
+    CGRect rect = self.view.frame;
+    rect.size = _contentView.frame.size;
+    self.view.frame = rect;
 }
 
 #pragma mark - 这个是重要的部分，用来判断每一个按钮的位置(这个时候是向左对其)
