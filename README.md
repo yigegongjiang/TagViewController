@@ -1,7 +1,8 @@
 # TagViewController
 标签展示，适合多种情况下的标签显示处理，有点击功能，
 
-可以人性化的配置能你需要的样式
+可以人性化的配置能你需要的样式   
+
 ```
 @property (nonatomic, assign) TagsAlignment tagsAlignment;    // 对其方式
 @property (nonatomic, strong) NSMutableArray *tagsArray;      // 所有的标签
@@ -20,3 +21,4 @@
 ```
 
 示例图片：
+![](./images/test.png)
