@@ -51,6 +51,27 @@
     CGSize size = _tagView.contentView.frame.size;
     [_tagView.view setFrame:CGRectMake(0, 100, size.width + 10, size.height + 10)];
     [self.view setBackgroundColor:[UIColor yellowColor]];
+
+    UIButton *button = [[UIButton alloc] init];
+    [button setFrame:CGRectMake(0, 300, 100, 100)];
+    [button addTarget:self action:@selector(clickTags:) forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundColor:[UIColor greenColor]];
+    [button setTitle:@"hahahaha" forState:UIControlStateNormal];
+    [button setTitle:@"bbbbbbbbbbbbbbbbbb" forState:UIControlStateHighlighted];
+    [self.view addSubview:button];
+}
+
+- (void)clickTags:(UIButton *)sender {
+    _tagView.tagsArray = [@[ @"aa子",
+                             @"aahahaaaa12",
+                             @"aa我们都是好孩子",
+                             @"aahah2",
+                             @"aa我",
+                             @"aa我",
+                             @"aaha12",
+                             @"aa我们都是好孩子",
+                             @"aa我们子",
+                             @"aa都是子" ] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {

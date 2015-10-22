@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self refreshData];
+}
+
+- (void)refreshData {
     [self loadParameters];
     [self everyOneTags];
     [self loadUI];
@@ -29,10 +33,16 @@
 }
 
 - (void)loadUI {
-    _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _maxSize.width, _maxSize.height)];
+    if (_contentView == nil) {
+        _contentView = [[UIView alloc] init];
+        [self.view addSubview:_contentView];
+    } else {
+        for (UIView *view in [_contentView subviews]) {
+            [view removeFromSuperview];
+        }
+    }
     [_contentView setBackgroundColor:_viewBackgroundColor];
     [_contentView setFrame:CGRectMake(0, 0, _maxSize.width, _maxSize.height)];
-    [self.view addSubview:_contentView];
 
     for (int i = 0; i < _tagsBtnArray.count; i++) {
         [self returnFitRectForEveryBtn:(UIButton *)[_tagsBtnArray objectAtIndex:i]];
@@ -140,8 +150,8 @@
     } else {
         [_tagsBtnArray removeAllObjects];
     }
-    for (int i = 0; i < _tagsArray.count; i++) {
-        NSString *str = [_tagsArray objectAtIndex:i];
+    for (int i = 0; i < self.tagsArray.count; i++) {
+        NSString *str = [self.tagsArray objectAtIndex:i];
         button = [[UIButton alloc] init];
         [button setTag:i];
         CGSize strSize = [self theWordSize:str andFont:_tagsFont andCGSize:CGSizeMake(kScreen_Width, kScreen_Height)];
@@ -209,6 +219,13 @@
 - (void)clickTags:(UIButton *)sender {
     if (_clickRowBlock != nil) {
         _clickRowBlock(sender.tag);
+    }
+}
+
+- (void)setTagsArray:(NSMutableArray *)array {
+    _tagsArray = array;
+    if (_contentView != nil) {
+        [self refreshData];
     }
 }
 
