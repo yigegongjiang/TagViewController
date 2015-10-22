@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TagViewController.h"
 
 @interface ViewController : UIViewController
-
+@property (strong, nonatomic) TagViewController *tagView;
 @end

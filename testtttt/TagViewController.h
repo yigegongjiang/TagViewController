@@ -18,6 +18,8 @@ typedef NS_ENUM(NSUInteger, TagsAlignment) {
     TagsAlignmentCenter    // 所有标签居中对齐
 };
 
+typedef void (^ClickRowBlock)(NSInteger clickRow);
+
 @interface TagViewController : UIViewController
 
 #pragma mark - 传过来的需要值
@@ -40,8 +42,9 @@ typedef NS_ENUM(NSUInteger, TagsAlignment) {
 @property (nonatomic, strong) UIView *contentView;          // 所有的标签统一在一个父view上面
 @property (nonatomic, strong) UIFont *tagsFont;             // 确定字体的大小
 @property (nonatomic, strong) NSMutableArray *tagsBtnArray; //标签按钮数组
-//@property (nonatomic, strong) NSMutableArray *tagsBtnSizeArray; //标签按钮的尺寸数组
-@property (nonatomic) CGSize trueSize; // 这个就是整个标签页面的实际size大小
+@property (nonatomic) CGSize trueSize;                      // 这个就是整个标签页面的实际size大小
+
+@property (nonatomic, strong) ClickRowBlock clickRowBlock;
 
 - (CGSize)returnContentSize; // 返回刚好包围内容区域的大小Size，当一个元素返行的时候，当前行空余的区域不再计算范围
 

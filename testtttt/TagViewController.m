@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self loadParameters];
     [self everyOneTags];
     [self loadUI];
@@ -29,8 +29,7 @@
 }
 
 - (void)loadUI {
-    [self.view setFrame:CGRectMake(0, 0, _maxSize.width, _maxSize.height)];
-    _contentView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _maxSize.width, _maxSize.height)];
     [_contentView setBackgroundColor:_viewBackgroundColor];
     [_contentView setFrame:CGRectMake(0, 0, _maxSize.width, _maxSize.height)];
     [self.view addSubview:_contentView];
@@ -62,7 +61,6 @@
 
 #pragma mark - 这个是重要的部分，用来判断每一个按钮的位置(这个时候是向左对其)
 - (void)returnFitRectForEveryBtn:(UIButton *)sender {
-    NSLog(@"%@", sender);
     int whichTag = (int)sender.tag;
     CGSize currentBtnSize = sender.frame.size;
     if (whichTag == 0) {
@@ -85,7 +83,6 @@
 
 #pragma mark - 当要求居中对其的时候，这里需要根据向左对其的基础重新调整Rect值
 - (void)fitRectForCenterBtn {
-    NSMutableArray *sizeArray = [[NSMutableArray alloc] init];
     NSMutableArray *lineArray = [[NSMutableArray alloc] init];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     float originy = 0;
@@ -117,8 +114,6 @@
             btn.frame = rect;
         }
     }
-
-    NSLog(@"****%@", dic);
 }
 
 - (BOOL)isContainSubView:(CGRect)wantSenderRect {
@@ -158,7 +153,9 @@
         button.layer.cornerRadius = _tagsBorderCornerRadius;
         button.layer.masksToBounds = YES;
         [button setTitleColor:_tagsWordsColor forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
         [button setFrame:CGRectMake(0, 0, strSize.width + 10, _tagsHeight)];
+        [button addTarget:self action:@selector(clickTags:) forControlEvents:UIControlEventTouchUpInside];
         [_tagsBtnArray addObject:button];
     }
 }
@@ -209,6 +206,12 @@
     }
 }
 
+- (void)clickTags:(UIButton *)sender {
+    if (_clickRowBlock != nil) {
+        _clickRowBlock(sender.tag);
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -226,13 +229,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
