@@ -35,6 +35,7 @@
     _tagView.maxSize = CGSizeMake(self.view.frame.size.width, 300);
     [_tagView setViewBackgroundColor:[UIColor grayColor]];
     [_tagView setTagsWordsColor:[UIColor blackColor]];
+    [_tagView setTagsBackgroundColorArray:@[ [UIColor redColor], [UIColor cyanColor], [UIColor blueColor], [UIColor greenColor], [UIColor orangeColor] ].mutableCopy];
     [_tagView setTagsBackgroundColor:[UIColor whiteColor]];
     [_tagView setTagsBorderColor:[UIColor blackColor]];
     [_tagView setTagsBorderCornerRadius:4];

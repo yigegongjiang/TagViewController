@@ -160,7 +160,12 @@
         CGSize strSize = [self theWordSize:str andFont:_tagsFont andCGSize:CGSizeMake(kScreen_Width, kScreen_Height)];
         [button.titleLabel setFont:_tagsFont];
         [button setTitle:str forState:UIControlStateNormal];
-        [button setBackgroundColor:_tagsBackgroundColor];
+        if (_tagsBackgroundColorArray == nil) {
+            [button setBackgroundColor:_tagsBackgroundColor];
+        } else {
+            int colorNumber = (int)_tagsBackgroundColorArray.count;
+            [button setBackgroundColor:[_tagsBackgroundColorArray objectAtIndex:i % colorNumber]];
+        }
         button.layer.borderColor = _tagsBorderColor.CGColor;
         button.layer.borderWidth = _tagsBorderWidth;
         button.layer.cornerRadius = _tagsBorderCornerRadius;
