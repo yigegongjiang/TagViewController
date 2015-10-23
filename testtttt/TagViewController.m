@@ -244,12 +244,8 @@
 
 - (CGSize)theWordSize:(NSString *)str andFont:(UIFont *)font andCGSize:(CGSize)sizeT {
     CGSize size;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
-        NSDictionary *tdic = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
-        size = [str boundingRectWithSize:sizeT options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:tdic context:nil].size;
-    } else {
-        size = [str sizeWithFont:font constrainedToSize:sizeT lineBreakMode:NSLineBreakByCharWrapping]; //ios7以上已经摒弃的这个方法
-    }
+    NSDictionary *tdic = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
+    size = [str boundingRectWithSize:sizeT options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:tdic context:nil].size;
     return size;
 }
 
