@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C65D3751BD6351F00D213C5 /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C65D3741BD6351F00D213C5 /* TagViewController.m */; settings = {ASSET_TAGS = (); }; };
+		3C65D3751BD6351F00D213C5 /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C65D3741BD6351F00D213C5 /* TagViewController.m */; };
 		3C6EC6B41BCFA12400637F7D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6EC6B31BCFA12300637F7D /* MediaPlayer.framework */; };
 		3CFF8A011BA1271900D1640D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF8A001BA1271900D1640D /* main.m */; };
 		3CFF8A041BA1271900D1640D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF8A031BA1271900D1640D /* AppDelegate.m */; };
@@ -198,7 +198,7 @@
 		3CFF89F31BA1271900D1640D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Adron;
 				TargetAttributes = {
 					3CFF89FA1BA1271900D1640D = {
@@ -354,6 +354,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -420,7 +421,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = testtttt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -432,7 +435,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = testtttt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -451,6 +456,7 @@
 				);
 				INFOPLIST_FILE = testttttTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testtttt.app/testtttt";
 			};
@@ -466,6 +472,7 @@
 				);
 				INFOPLIST_FILE = testttttTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testtttt.app/testtttt";
 			};
